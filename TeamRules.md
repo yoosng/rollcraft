@@ -1,6 +1,19 @@
 # RollCraft 팀 규칙: Git · PR
 
-`main`은 항상 `npm run dev`로 실행되는 상태를 유지해요. 모든 작업은 브랜치에서 하고 PR로 합쳐요.
+`main`은 항상 `npm run dev`로 실행되는 상태를 유지해요. 자기 담당 폴더의 작업은 `main`에 바로 푸시해도 되고, 남의 폴더나 공용 계약을 건드릴 때는 브랜치에서 작업해 PR로 합쳐요.
+
+## 0. main에 직접 푸시할 때
+
+- 자기 담당 폴더나 문서만 고쳤을 때 바로 푸시해도 돼요.
+- 푸시 전에 `npm run build`와 `npm run format`을 해요.
+- 푸시 전에 항상 최신 `main`을 받아요. 아직 푸시하지 않은 내 커밋이라 rebase해도 괜찮아요.
+
+```bash
+git pull --rebase
+git push
+```
+
+- 큰 기능이나 오래 걸리는 작업은 아래 규칙대로 브랜치와 PR을 써요.
 
 ## 1. 브랜치
 
@@ -73,6 +86,5 @@ git merge origin/main
 ## 6. 금지
 
 - `git push --force`: 다른 사람의 커밋이 사라질 수 있어요.
-- `main`에 직접 푸시
 - 공용 계약을 혼자 바꾸기
 - `node_modules/`, `dist/`, `.env` 커밋하기(`.gitignore`가 막아 주지만 `git add -f`는 쓰지 않아요)
